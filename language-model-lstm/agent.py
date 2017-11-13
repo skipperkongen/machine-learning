@@ -134,7 +134,7 @@ if __name__=='__main__':
     # Predict command
     parser_b = subparsers.add_parser('predict', help='b help')
     parser_b.add_argument('-s', '--seed', metavar='SEED', default='the quick brown fox jumped over the lazy dog.', help='An input string to use as seed')
-    parser_b.add_argument('-w', '--weights-file', default='alice-big-W100-L0.2582.hdf5', help='path to hdf5 file that contains weights')
+    parser_b.add_argument('-w', '--weights-file', default='weights-big-ALICE-W100-L0.26.hdf5', help='path to hdf5 file that contains weights')
     parser_b.set_defaults(func=agent.predict)
 
     args = parser.parse_args()
