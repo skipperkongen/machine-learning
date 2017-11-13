@@ -1,0 +1,3 @@
+newline
+space space
+!"'()*,-.03:;?[]_abcdefghijklmnopqrstuvwxyz
