@@ -74,7 +74,7 @@ class Agent:
         vocab = Vocab(args.vocab_file, lower_case=LOWER_CASE)
         print ('- Character set:', vocab.distinct)
         print ('Reading training data')
-        with open(args.path) as f:
+        with open(args.training_file) as f:
             raw_text = f.read().lower()
         print ('-', raw_text[0:25], '...')
         print ('Transforming data to X and y')
@@ -83,6 +83,7 @@ class Agent:
         print ('Creating model')
         model = self._get_model(args.model_name, vocab=vocab)
         model.compile(loss='categorical_crossentropy', optimizer='adam')
+        print(model.summary())
         print ('Train model')
         if args.model_name == 'micro': epochs = 1
         if args.model_name == 'big': epochs = 200
@@ -106,6 +107,7 @@ class Agent:
         model = self._get_model(args.model_name, vocab=vocab)
         model.load_weights(args.weights_file)
         model.compile(loss='categorical_crossentropy', optimizer='adam')
+        print(model.summary())
         print ('Generating text...')
         print ()
         print ()
@@ -127,7 +129,7 @@ if __name__=='__main__':
     subparsers = parser.add_subparsers(help='sub-command help')
     # Fit command
     parser_a = subparsers.add_parser('fit', help='a help')
-    parser_a.add_argument('path', default='alice.txt', help='Path to text file with training data. Only characters in vocab file used.')
+    parser_a.add_argument('--training-file', default='alice.txt', help='Path to text file with training data. Only characters in vocab file used.')
     parser_a.set_defaults(func=agent.fit)
     # Predict command
     parser_b = subparsers.add_parser('predict', help='b help')

@@ -16,10 +16,8 @@ You need:
 - Keras
 - Jupyter
 
-Run jupyter:
 
 ```
-$ jupyter notebook
+workon p3-ai
+python agent.py predict -s "Hello world"
 ```
-
-Open the `Alice.ipynb` notebook and run it.
