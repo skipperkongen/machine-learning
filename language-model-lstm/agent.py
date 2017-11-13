@@ -107,8 +107,9 @@ class Agent:
         model.load_weights(args.weights_file)
         model.compile(loss='categorical_crossentropy', optimizer='adam')
         print ('Generating text...')
-
-        for i in range(1000):
+        print ()
+        print ()
+        for i in range(10000):
             prediction = model.predict(np.reshape(window, (1, WINDOW_SIZE, vocab.n)), verbose=0)
             index = np.argmax(prediction)
             sys.stdout.write(vocab.index_to_character(index))
