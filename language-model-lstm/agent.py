@@ -36,7 +36,7 @@ class Agent:
             raise Error('Vocab must be set')
         if model_name == 'micro':
             model = Sequential()
-            model.add(LSTM(256, input_shape=(window_size, vocab.n)))
+            model.add(LSTM(128, input_shape=(window_size, vocab.n)))
             model.add(Dropout(0.2))
             model.add(Dense(vocab.n, activation='softmax'))
         elif model_name == 'big':
@@ -85,8 +85,8 @@ class Agent:
         model.compile(loss='categorical_crossentropy', optimizer='adam')
         print(model.summary())
         print ('Train model')
-        if args.model_name == 'micro': epochs = 1
-        if args.model_name == 'big': epochs = 200
+        if args.model_name == 'micro': epochs = 10
+        if args.model_name == 'big': epochs = 100
         checkpoint = ModelCheckpoint(filepath, monitor='loss', verbose=1, save_best_only=True, mode='min')
         model.fit(X, y, epochs=epochs, batch_size=128, callbacks=[checkpoint])
 
