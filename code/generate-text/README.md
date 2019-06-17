@@ -18,6 +18,5 @@ You need:
 
 
 ```
-workon p3-ai
 python agent.py predict -s "Hello world"
 ```

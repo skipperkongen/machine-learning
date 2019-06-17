@@ -1,0 +1,13 @@
+artifact_uri: /Users/kostas/Documents/projects/mlflow-titanic/mlruns/0/2783ec3df9a84f1588e48c405ffd60ac/artifacts
+end_time: 1538579396934
+entry_point_name: main
+experiment_id: 0
+name: Run 3
+run_uuid: 2783ec3df9a84f1588e48c405ffd60ac
+source_name: file:///Users/kostas/Documents/projects/mlflow-titanic
+source_type: 3
+source_version: 13d8d06e12c673ee8ffa8fad824188afaec8698f
+start_time: 1538579395195
+status: 3
+tags: []
+user_id: kostas
